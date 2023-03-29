@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -123,3 +124,10 @@ STATIC_URL = "static/"
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+# Build paths inside the project like this: BASE_DIR / 'subdir'.
+BASE_DIR = Path(__file__).resolve().parent.parent
+STORAGE_FOLDER = "medisp_storage"
+MEDIA_ROOT = os.path.join(BASE_DIR, STORAGE_FOLDER)
+HIST_IMAGES = os.path.join(MEDIA_ROOT, "hist_images")
+os.makedirs(HIST_IMAGES, exist_ok=True)
