@@ -125,10 +125,12 @@ class TestHistImageModelViewset(APITestCase):
         for label in labels:
             image_folder = os.path.join(dataset_folder, label.name)
 
-        for image_filename in os.listdir(image_folder):
-            image_filepath = os.path.join(image_folder, image_filename)
+            for image_filename in os.listdir(image_folder):
+                image_filepath = os.path.join(image_folder, image_filename)
 
-        hist_images.append(HistImage(id=id_counter, label=label, file=image_filepath))
+                hist_images.append(
+                    HistImage(id=id_counter, label=label, file=image_filepath)
+                )
 
         id_counter += 1
 
