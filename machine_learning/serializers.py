@@ -1,7 +1,7 @@
 from django.contrib.auth.models import User, Group
 from rest_framework import serializers
 
-from machine_learning.models import Label
+from machine_learning.models import Label, HistImage
 
 
 class UserSerializer(serializers.HyperlinkedModelSerializer):
@@ -22,5 +22,7 @@ class LabelSerializer(serializers.ModelSerializer):
         fields = "__all__"
 
 
-class HistImageSerializer:
-    pass
+class HistImageSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = HistImage
+        fields = "__all__"
